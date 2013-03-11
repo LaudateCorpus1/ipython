@@ -10,7 +10,7 @@ import sys
 
 # Third-party imports
 import matplotlib
-from matplotlib.backends.backend_agg import new_figure_manager, FigureCanvasAgg
+from matplotlib.backends.backend_pgf import new_figure_manager
 from matplotlib._pylab_helpers import Gcf
 
 # Local imports.
@@ -221,8 +221,3 @@ def send_figure(fig):
         'IPython.zmq.pylab.backend_inline.send_figure',
         {mime : data}
     )
-
-# Changes to matplotlib in version 1.2 requires a mpl backend to supply a default
-# figurecanvas. This is set here to a Agg canvas
-# See https://github.com/matplotlib/matplotlib/pull/1125
-FigureCanvas = FigureCanvasAgg
